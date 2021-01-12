@@ -11,11 +11,11 @@ public class Main {
     public static void main(String[] args) {
         ManufacturerService manufacturerService
                 = (ManufacturerService) injector.getInstance(ManufacturerService.class);
-        Manufacturer tesla = new Manufacturer("Passat B8", "Germany");
+        Manufacturer volksWagenSedan = new Manufacturer("Passat B8", "Germany");
         Manufacturer volksWagen = new Manufacturer("Touareg 7P", "Germany");
         Manufacturer seat = new Manufacturer("Leon", "Spain");
         Manufacturer skoda = new Manufacturer("Superb", "Czech Republic");
-        manufacturerService.create(tesla);
+        manufacturerService.create(volksWagenSedan);
         manufacturerService.create(volksWagen);
         manufacturerService.create(seat);
         manufacturerService.create(skoda);
@@ -28,5 +28,6 @@ public class Main {
         System.out.println(manufacturerService.getAllManufactures());
         manufacturerService.deleteById(3L);
         System.out.println(manufacturerService.getAllManufactures());
+        System.out.println(manufacturerService.getById(4L));
     }
 }
