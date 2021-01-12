@@ -20,7 +20,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public Optional<Manufacturer> getById(Long manufactureId) {
-        return Optional.of(manufacturerDao.getById(manufactureId).orElseThrow());
+        return manufacturerDao.getById(manufactureId)get();
     }
 
     @Override
