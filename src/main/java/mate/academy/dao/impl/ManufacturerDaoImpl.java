@@ -1,6 +1,7 @@
 package mate.academy.dao.impl;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import mate.academy.dao.ManufacturerDao;
 import mate.academy.lib.Dao;
@@ -38,7 +39,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
 
     @Override
     public boolean deleteById(Long manufactureId) {
-        return Storage.manufacturers.removeIf(id -> id.getId().equals(manufactureId));
+        return Storage.manufacturers.removeIf(m -> Objects.equals(m.getId(), manufactureId));
     }
 
     @Override
