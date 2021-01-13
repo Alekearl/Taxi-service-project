@@ -10,7 +10,7 @@ import mate.academy.model.Driver;
 public class DriverServiceImpl implements DriverService {
 
     @Inject
-    DriverDao driverDao;
+    private DriverDao driverDao;
 
     @Override
     public Driver create(Driver driver) {
