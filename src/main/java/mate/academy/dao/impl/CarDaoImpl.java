@@ -5,12 +5,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import mate.academy.dao.CarDao;
-import mate.academy.lib.Dao;
 import mate.academy.model.Car;
 import mate.academy.model.Driver;
 import mate.academy.storage.Storage;
 
-@Dao
 public class CarDaoImpl implements CarDao {
     @Override
     public Car create(Car car) {

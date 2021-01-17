@@ -1,5 +1,6 @@
 package mate.academy.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ public class Car {
     public Car(String model, Manufacturer manufacturer) {
         this.model = model;
         this.manufacturer = manufacturer;
-        drivers = new ArrayList();
+        drivers = new ArrayList<>();
     }
 
     public Long getId() {
