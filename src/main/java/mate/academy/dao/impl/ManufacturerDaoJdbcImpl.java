@@ -27,7 +27,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
             statement.setString(2, manufacturer.getCountry());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
-            while (resultSet.next()) {
+            if (resultSet.next()) {
                 manufacturer.setId(resultSet.getLong(1));
             }
             return manufacturer;
