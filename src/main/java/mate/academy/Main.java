@@ -18,7 +18,7 @@ public class Main {
         manufacturer.setName("FORD");
         manufacturer.setCountry("USA");
         manufacturerService.update(manufacturer);
-        System.out.println(manufacturer);
+        System.out.println(manufacturerService.getById(1L));
         manufacturerService.delete(manufacturer);
         manufacturerService.deleteById(3L);
         System.out.println(manufacturerService.getAllManufactures());
