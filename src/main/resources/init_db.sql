@@ -4,7 +4,7 @@ CREATE TABLE `manufacturer`.`manufacturers` (
                                                 `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
                                                 `name` VARCHAR(225) NOT NULL,
                                                 `country` VARCHAR(225) NOT NULL,
-                                                `delete` TINYINT(20) NOT NULL DEFAULT '0',
+                                                `deleted` TINYINT(20) NOT NULL DEFAULT '0',
                                                 PRIMARY KEY (`id`),
                                                 UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
