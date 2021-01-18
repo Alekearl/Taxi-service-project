@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
-
     public static Connection getConnection() {
         Properties dbProperties = new Properties();
         dbProperties.put("user", "root");
