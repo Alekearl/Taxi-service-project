@@ -4,11 +4,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import mate.academy.dao.ManufacturerDao;
-import mate.academy.lib.Dao;
 import mate.academy.model.Manufacturer;
 import mate.academy.storage.Storage;
 
-@Dao
 public class ManufacturerDaoImpl implements ManufacturerDao {
 
     @Override

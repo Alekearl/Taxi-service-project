@@ -7,11 +7,11 @@ import mate.academy.model.Manufacturer;
 public interface ManufacturerDao {
     Manufacturer create(Manufacturer manufacturer);
 
-    Optional<Manufacturer> getById(Long manufactureId);
+    Optional<Manufacturer> getById(Long manufacturerId);
 
     Manufacturer update(Manufacturer manufacturer);
 
-    boolean deleteById(Long manufactureId);
+    boolean deleteById(Long manufacturerId);
 
     boolean delete(Manufacturer manufacturer);
 
