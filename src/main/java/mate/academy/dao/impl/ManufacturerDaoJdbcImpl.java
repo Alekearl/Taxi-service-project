@@ -38,7 +38,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
     }
 
     @Override
-    public Optional<Manufacturer> getById(Long manufactureId) {
+    public Optional<Manufacturer> getById(Long manufacturerId) {
         String query = "SELECT * FROM manufacturer.manufacturers "
                 + "WHERE manufacturer_id = ? AND manufacturer_delete = FALSE";
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
