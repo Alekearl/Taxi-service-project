@@ -8,4 +8,4 @@ CREATE TABLE `taxi_service`.`manufacturers` (
                                                 PRIMARY KEY (`id`),
                                                 UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
-INSERT INTO `taxi_service` (`name`, `country`) VALUES ('Smart', 'Germany');
+INSERT INTO `taxi_service`.`manufacturers` (`name`, `country`) VALUES ('Smart', 'Germany');
