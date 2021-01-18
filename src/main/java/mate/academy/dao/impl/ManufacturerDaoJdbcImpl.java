@@ -81,7 +81,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
     @Override
     public boolean deleteById(Long manufactureId) {
         String query = "UPDATE manufacturer.manufacturers "
-                + "SET manufacturer_delete = ? WHERE manufacturer_id = ?";
+                + "SET manufacturer_delete = TRUE WHERE manufacturer_id = ?";
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
                 connection.prepareStatement(query)) {
             statement.setBoolean(1, true);
