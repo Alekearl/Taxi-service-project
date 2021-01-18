@@ -1,4 +1,4 @@
-CREATE SCHEMA `manufacturer` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA `taxi_service` DEFAULT CHARACTER SET utf8 ;
 
 CREATE TABLE `manufacturer`.`manufacturers` (
                                                 `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
