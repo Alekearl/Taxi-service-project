@@ -48,7 +48,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Something went wrong."
-                    + " Can't get ID dy index " + manufacturerId, e);
+                    + " Can't get manufacturer by index " + manufacturerId, e);
         }
         return Optional.empty();
     }
