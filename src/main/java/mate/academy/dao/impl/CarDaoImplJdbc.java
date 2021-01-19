@@ -70,9 +70,7 @@ public class CarDaoImplJdbc implements CarDao {
             while (resultSet.next()) {
                 cars.add(parseDataFromResultSet(resultSet));
             }
-            for (Car car : cars) {
-                car.setDrivers(getCarDrivers(car.getId()));
-            }
+            setCars(cars);
             return cars;
         } catch (SQLException e) {
             throw new DataProcessingException("Something went wrong. Can't get all cars "
@@ -129,15 +127,19 @@ public class CarDaoImplJdbc implements CarDao {
             while (resultSet.next()) {
                 cars.add(parseDataFromResultSet(resultSet));
             }
-            for (Car car : cars) {
-                car.setDrivers(getCarDrivers(car.getId()));
-            }
+            setCars(cars);
             return cars;
         } catch (SQLException e) {
             throw new DataProcessingException("Something went wrong. Can't get car drivers by ID "
                     + driverId, e);
         }
 
+    }
+
+    private void setCars(List<Car> cars) {
+        for (Car car : cars) {
+            car.setDrivers(getCarDrivers(car.getId()));
+        }
     }
 
     private Car parseDataFromResultSet(ResultSet resultSet) throws SQLException {
@@ -166,9 +168,9 @@ public class CarDaoImplJdbc implements CarDao {
             while (resultSet.next()) {
                 String name = resultSet.getString("name");
                 String licenceNumber = resultSet.getString("license_number");
-                Long idDriver = resultSet.getObject("driver_id", Long.class);
+                Long driverId = resultSet.getObject("driver_id", Long.class);
                 Driver driver = new Driver(name, licenceNumber);
-                driver.setId(idDriver);
+                driver.setId(driverId);
                 drivers.add(driver);
             }
             return drivers;
