@@ -93,6 +93,7 @@ public class CarDaoImplJdbc implements CarDao {
             statement.setLong(2, car.getManufacturer().getId());
             statement.setLong(3, car.getId());
             statement.executeUpdate();
+            statement.close();
             removeDrivers(car, connection);
             insertDrivers(car, connection);
             return car;
