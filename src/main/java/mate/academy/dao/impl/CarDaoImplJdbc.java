@@ -39,10 +39,10 @@ public class CarDaoImplJdbc implements CarDao {
 
     @Override
     public Optional<Car> get(Long id) {
-        String query = "SELECT cars.id, cars.model, cars.manufacturer_id, "
-                + "manufacturers.name, manufacturers.country FROM cars "
-                + "JOIN manufacturers ON cars.manufacturer_id = "
-                + "manufacturers.id WHERE cars.id = ? AND cars.deleted = FALSE";
+        String query = "SELECT c.id, c.model, c.manufacturer_id, "
+                + "m.name, m.country FROM cars c "
+                + "JOIN manufacturers m ON c.manufacturer_id = "
+                + "m.id WHERE c.id = ? AND c.deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
                 connection.prepareStatement(query)) {
             statement.setLong(1, id);
