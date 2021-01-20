@@ -7,24 +7,24 @@ import mate.academy.lib.Service;
 import mate.academy.model.Manufacturer;
 
 @Service
-public class ManufacturerServiceImpl implements GenericService<Manufacturer, Long> {
+public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Inject
     private ManufacturerDao manufacturerDao;
 
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
-        return (Manufacturer) manufacturerDao.create(manufacturer);
+        return manufacturerDao.create(manufacturer);
     }
 
     @Override
-    public Manufacturer get(Long manufactureId) {
-        return (Manufacturer) manufacturerDao.get(manufactureId).get();
+    public Manufacturer get(Long id) {
+        return manufacturerDao.get(id).get();
     }
 
     @Override
     public Manufacturer update(Manufacturer manufacturer) {
-        return (Manufacturer) manufacturerDao.update(manufacturer);
+        return manufacturerDao.update(manufacturer);
     }
 
     @Override

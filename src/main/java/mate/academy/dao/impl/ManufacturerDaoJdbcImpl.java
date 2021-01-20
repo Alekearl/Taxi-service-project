@@ -8,14 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import mate.academy.dao.GenericDao;
+import mate.academy.dao.ManufacturerDao;
 import mate.academy.exception.DataProcessingException;
 import mate.academy.lib.Dao;
 import mate.academy.model.Manufacturer;
 import mate.academy.util.ConnectionUtil;
 
 @Dao
-public class ManufacturerDaoJdbcImpl implements GenericDao<Manufacturer, Long> {
+public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
         String query = "INSERT INTO manufacturers (name, country) VALUES (?, ?);";
