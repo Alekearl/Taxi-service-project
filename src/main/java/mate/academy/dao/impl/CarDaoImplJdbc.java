@@ -43,6 +43,7 @@ public class CarDaoImplJdbc implements CarDao {
                 + "m.name, m.country FROM cars c "
                 + "JOIN manufacturers m ON c.manufacturer_id = "
                 + "m.id WHERE c.id = ? AND c.deleted = FALSE";
+        Car car = null;
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
                 connection.prepareStatement(query)) {
             statement.setLong(1, id);
@@ -54,6 +55,10 @@ public class CarDaoImplJdbc implements CarDao {
             throw new DataProcessingException("Something went wrong. Can't get car by ID "
                     + id, e);
         }
+        if (car != null) {
+            car.setDrivers(getCarDrivers(car.getId()));
+        }
+        return Optional.ofNullable(car);
         return Optional.empty();
     }
 
