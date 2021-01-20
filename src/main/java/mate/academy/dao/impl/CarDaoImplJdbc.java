@@ -75,12 +75,14 @@ public class CarDaoImplJdbc implements CarDao {
             while (resultSet.next()) {
                 cars.add(parseDataFromResultSet(resultSet));
             }
-            setCars(cars, connection);
-            return cars;
         } catch (SQLException e) {
             throw new DataProcessingException("Something went wrong. Can't get all cars "
                     + cars, e);
         }
+        for (Car car : cars) {
+            car.setDrivers(getCarDrivers(car.getId()));
+        }
+        return cars;
     }
 
     @Override
