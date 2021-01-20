@@ -62,7 +62,7 @@ public class CarDaoImplJdbc implements CarDao {
         String query = "SELECT cars.id, cars.model, cars.manufacturer_id, manufacturers.name, "
                 + "manufacturers.country FROM cars "
                 + "LEFT JOIN manufacturers ON cars.manufacturer_id = manufacturers.id "
-                + "WHERE taxi_service.cars.deleted = FALSE";
+                + "WHERE cars.deleted = FALSE";
         List<Car> cars = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
                 connection.prepareStatement(query)) {
