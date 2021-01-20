@@ -1,7 +1,11 @@
 package mate.academy;
 
 import mate.academy.lib.Injector;
+import mate.academy.model.Car;
+import mate.academy.model.Driver;
 import mate.academy.model.Manufacturer;
+import mate.academy.service.CarService;
+import mate.academy.service.DriverService;
 import mate.academy.service.ManufacturerService;
 
 public class Main {
@@ -22,5 +26,25 @@ public class Main {
         manufacturerService.delete(manufacturer);
         manufacturerService.deleteById(3L);
         System.out.println(manufacturerService.getAllManufactures());
+
+        DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
+        Driver driver = new Driver("Leonidas", "354541");
+        driverService.create(driver);
+        System.out.println(driver);
+        driver.setLicenseNumber("3578");
+        driverService.update(driver);
+
+        CarService carService = (CarService) injector.getInstance(CarService.class);
+        Car car = new Car("Volvo", manufacturer);
+        carService.create(car);
+        System.out.println(car);
+        car.setModel("XC60");
+        carService.update(car);
+        System.out.println(car);
+        System.out.println(carService.getAll());
+        carService.delete(2L);
+        System.out.println(carService.getAll());
+        carService.addDriverToCar(driver, car);
+        System.out.println(carService.getAll());
     }
 }

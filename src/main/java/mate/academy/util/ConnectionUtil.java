@@ -10,7 +10,7 @@ public class ConnectionUtil {
         Properties dbProperties = new Properties();
         dbProperties.put("user", "root");
         dbProperties.put("password", "Alexandr_24101987");
-        String url = "jdbc:mysql://localhost:3306/manufacturer?serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3306/taxi_service?serverTimezone=UTC";
 
         try {
             return DriverManager.getConnection(url, dbProperties);
