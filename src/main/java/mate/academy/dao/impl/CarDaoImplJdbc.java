@@ -61,7 +61,7 @@ public class CarDaoImplJdbc implements CarDao {
     public List<Car> getAll() {
         String query = "SELECT cars.id, cars.model, cars.manufacturer_id, manufacturers.name, "
                 + "manufacturers.country FROM cars "
-                + "JOIN manufacturers ON cars.manufacturer_id = manufacturers.id "
+                + "LEFT JOIN manufacturers ON cars.manufacturer_id = manufacturers.id "
                 + "WHERE taxi_service.cars.deleted = FALSE";
         List<Car> cars = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
@@ -117,9 +117,8 @@ public class CarDaoImplJdbc implements CarDao {
                 + "FROM cars "
                 + "JOIN cars_drivers ON cars.id = cars_drivers.car_id "
                 + "JOIN manufacturers ON cars.manufacturer_id = manufacturers.id "
-                + "JOIN drivers ON drivers.id = cars_drivers.driver_id "
                 + "WHERE cars_drivers.driver_id = ? "
-                + "AND cars.deleted = FALSE AND drivers.deleted = FALSE";
+                + "AND cars.deleted = FALSE";
         List<Car> cars = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
                 connection.prepareStatement(selectQuery)) {
@@ -160,7 +159,7 @@ public class CarDaoImplJdbc implements CarDao {
         String query = "SELECT drivers.name, drivers.license_number, "
                 + "cars_drivers.driver_id FROM cars_drivers "
                 + "JOIN drivers ON cars_drivers.driver_id = drivers.id "
-                + "WHERE cars_drivers.car_id = ? AND drivers.deleted = FALSE";
+                + "WHERE cars_drivers.car_id = ?";
         List<Driver> drivers = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(1, id);
