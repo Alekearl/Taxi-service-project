@@ -18,14 +18,13 @@ public class Main {
         Manufacturer manufacturer = new Manufacturer("Volvo", "China");
         manufacturerService.create(manufacturer);
         System.out.println(manufacturer);
-        System.out.println(manufacturerService.getById(1L));
+        System.out.println(manufacturerService.get(1L));
         manufacturer.setName("FORD");
         manufacturer.setCountry("USA");
         manufacturerService.update(manufacturer);
-        System.out.println(manufacturerService.getById(1L));
-        manufacturerService.delete(manufacturer);
-        manufacturerService.deleteById(3L);
-        System.out.println(manufacturerService.getAllManufactures());
+        System.out.println(manufacturerService.get(1L));
+        manufacturerService.delete(3L);
+        System.out.println(manufacturerService.getAll());
 
         DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
         Driver driver = new Driver("Leonidas", "354541");

@@ -8,14 +8,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import mate.academy.dao.ManufacturerDao;
+import mate.academy.dao.GenericDao;
 import mate.academy.exception.DataProcessingException;
 import mate.academy.lib.Dao;
 import mate.academy.model.Manufacturer;
 import mate.academy.util.ConnectionUtil;
 
 @Dao
-public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
+public class ManufacturerDaoJdbcImpl implements GenericDao<Manufacturer, Long> {
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
         String query = "INSERT INTO manufacturers (name, country) VALUES (?, ?);";
@@ -36,7 +36,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
     }
 
     @Override
-    public Optional<Manufacturer> getById(Long manufacturerId) {
+    public Optional<Manufacturer> get(Long manufacturerId) {
         String query = "SELECT * FROM manufacturers "
                 + "WHERE id = ? AND deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
@@ -72,7 +72,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
     }
 
     @Override
-    public boolean deleteById(Long manufacturerId) {
+    public boolean delete(Long manufacturerId) {
         String query = "UPDATE manufacturers "
                 + "SET deleted = TRUE WHERE id = ?;";
         try (Connection connection = ConnectionUtil.getConnection(); PreparedStatement statement =
@@ -85,13 +85,7 @@ public class ManufacturerDaoJdbcImpl implements ManufacturerDao {
         }
     }
 
-    @Override
-    public boolean delete(Manufacturer manufacturer) {
-        return deleteById(manufacturer.getId());
-    }
-
-    @Override
-    public List<Manufacturer> getAllManufactures() {
+    public List<Manufacturer> getAll() {
         List<Manufacturer> manufacturers = new ArrayList<>();
         String query = "SELECT * FROM manufacturers "
                 + "WHERE deleted = FALSE";

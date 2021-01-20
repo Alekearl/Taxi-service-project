@@ -10,30 +10,30 @@ import mate.academy.model.Driver;
 public class DriverServiceImpl implements DriverService {
 
     @Inject
-    private DriverDao driverDao;
+    private DriverDao genericDao;
 
     @Override
     public Driver create(Driver driver) {
-        return driverDao.create(driver);
+        return (Driver) genericDao.create(driver);
     }
 
     @Override
     public Driver get(Long id) {
-        return driverDao.get(id).get();
+        return (Driver) genericDao.get(id).get();
     }
 
     @Override
     public List<Driver> getAll() {
-        return driverDao.getAll();
+        return genericDao.getAll();
     }
 
     @Override
     public Driver update(Driver driver) {
-        return driverDao.update(driver);
+        return (Driver) genericDao.update(driver);
     }
 
     @Override
     public boolean delete(Long id) {
-        return driverDao.delete(id);
+        return genericDao.delete(id);
     }
 }
