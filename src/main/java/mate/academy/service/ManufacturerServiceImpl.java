@@ -1,7 +1,7 @@
 package mate.academy.service;
 
 import java.util.List;
-import mate.academy.dao.GenericDao;
+import mate.academy.dao.ManufacturerDao;
 import mate.academy.lib.Inject;
 import mate.academy.lib.Service;
 import mate.academy.model.Manufacturer;
@@ -10,7 +10,7 @@ import mate.academy.model.Manufacturer;
 public class ManufacturerServiceImpl implements GenericService<Manufacturer, Long> {
 
     @Inject
-    private GenericDao manufacturerDao;
+    private ManufacturerDao manufacturerDao;
 
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
