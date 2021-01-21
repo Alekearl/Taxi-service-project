@@ -10,7 +10,7 @@
     Insert car model<br>
     <input type="text" name="model" required><br>
     Insert manufacturer<br>
-    <input type="text" name="manufacturer_id" required><br>
+    <input type="number" name="manufacturer_id" required><br>
     <button type="submit">Create</button>
 </form>
 <a href="${pageContext.request.contextPath}/">Go to the main page</a>
