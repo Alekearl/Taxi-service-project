@@ -52,11 +52,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>DisplayAllDriverToCar</servlet-name>
+        <servlet-name>DisplayAllDriver</servlet-name>
         <servlet-class>mate.academy.controller.DisplayAllDriversController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>DisplayAllDriverToCar</servlet-name>
+        <servlet-name>DisplayAllDriver</servlet-name>
         <url-pattern>/drivers/</url-pattern>
     </servlet-mapping>
 </web-app>
