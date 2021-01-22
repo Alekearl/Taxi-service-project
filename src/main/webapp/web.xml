@@ -7,11 +7,56 @@
 
     <servlet>
         <servlet-name>index</servlet-name>
-        <servlet-class>mate.academy.controllers.IndexController</servlet-class>
+        <servlet-class>mate.academy.controller.IndexController</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>index</servlet-name>
-        <url-pattern>/index</url-pattern>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateDriver</servlet-name>
+        <servlet-class>mate.academy.controller.CreateDriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateDriver</servlet-name>
+        <url-pattern>/drivers/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateCar</servlet-name>
+        <servlet-class>mate.academy.controller.CreateCarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateCar</servlet-name>
+        <url-pattern>/cars/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CreateManufacturer</servlet-name>
+        <servlet-class>mate.academy.controller.CreateManufacturerController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateManufacturer</servlet-name>
+        <url-pattern>/manufacturers/create</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addDriverToCar</servlet-name>
+        <servlet-class>mate.academy.controller.AddDriverToCarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addDriverToCar</servlet-name>
+        <url-pattern>/cars/drivers/insert</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisplayAllDriver</servlet-name>
+        <servlet-class>mate.academy.controller.DisplayAllDriversController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayAllDriver</servlet-name>
+        <url-pattern>/drivers/</url-pattern>
     </servlet-mapping>
 </web-app>
