@@ -25,9 +25,12 @@ public class CreateDriverController extends HttpServlet {
             throws ServletException, IOException {
         String name = req.getParameter("name");
         String licenceNumber = req.getParameter("licence_number");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         Driver driver = new Driver(name, licenceNumber);
+        driver.setLogin(login);
+        driver.setPassword(password);
         driverService.create(driver);
-        req.setAttribute("notification", "Created driver");
-        req.getRequestDispatcher("/WEB-INF/views/drivers/create.jsp").forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }
