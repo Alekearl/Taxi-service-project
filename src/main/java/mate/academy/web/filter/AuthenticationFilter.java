@@ -1,6 +1,8 @@
 package mate.academy.web.filter;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,14 +16,15 @@ import mate.academy.service.DriverService;
 
 public class AuthenticationFilter implements Filter {
     private static final String DRIVER_ID = "driver_id";
-    private static final String URL_LOGIN = "/login";
-    private static final String URL_DRIVERS_CREATE = "/drivers/create";
     private static final Injector injector = Injector.getInstance("mate.academy");
     private static final DriverService driverService =
             (DriverService) injector.getInstance(DriverService.class);
+    private Set<String> urls = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        urls.add("/login");
+        urls.add("/drivers/create");
     }
 
     @Override
@@ -30,13 +33,13 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         String url = req.getServletPath();
-        if (url.equals(URL_LOGIN) || url.equals(URL_DRIVERS_CREATE)) {
+        if (urls.contains(url)) {
             chain.doFilter(req, resp);
             return;
         }
         Long driverId = (Long) req.getSession().getAttribute(DRIVER_ID);
         if (driverId == null || driverService.get(driverId) == null) {
-            resp.sendRedirect(URL_LOGIN);
+            resp.sendRedirect("/login");
             return;
         }
         chain.doFilter(req, resp);
