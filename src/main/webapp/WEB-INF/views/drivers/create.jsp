@@ -14,7 +14,7 @@
     Insert driver login<br>
     <input type="text" name="login" required><br>
     Insert driver password<br>
-    <input type="text" name="password" required><br>
+    <input type="password" name="password" required><br>
     <button type="submit">Create</button>
 </form>
 <a href="${pageContext.request.contextPath}/">Go to the main page</a>
