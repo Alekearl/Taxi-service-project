@@ -70,8 +70,6 @@ public class Driver {
                 && Objects.equals(password, driver.password);
     }
 
-
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name, licenseNumber, login, password);
