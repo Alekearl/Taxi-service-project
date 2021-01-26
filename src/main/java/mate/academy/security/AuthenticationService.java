@@ -5,5 +5,5 @@ import mate.academy.exception.AuthenticationException;
 import mate.academy.model.Driver;
 
 public interface AuthenticationService {
-    Optional<Driver> login(String login, String password) throws AuthenticationException;
+    Driver login(String login, String password) throws AuthenticationException;
 }
