@@ -59,4 +59,32 @@
         <servlet-name>DisplayAllDriver</servlet-name>
         <url-pattern>/drivers/</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginDriver</servlet-name>
+        <servlet-class>mate.academy.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginDriver</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetMyCurrentCars</servlet-name>
+        <servlet-class>mate.academy.controller.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMyCurrentCars</servlet-name>
+        <url-pattern>/cars/</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>mate.academy.web.filter.AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
 </web-app>

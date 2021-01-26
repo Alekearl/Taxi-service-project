@@ -14,6 +14,8 @@ CREATE TABLE `taxi_service`.`drivers` (
                                           `id` BIGINT NOT NULL AUTO_INCREMENT,
                                           `name` VARCHAR(225) NOT NULL,
                                           `license_number` VARCHAR(225) NOT NULL,
+                                          `login` VARCHAR(225) NOT NULL,
+                                          `password` VARCHAR(225) NOT NULL,
                                           `deleted` TINYINT NOT NULL DEFAULT '0',
                                           PRIMARY KEY (`id`),
                                           UNIQUE INDEX `iddrivers_UNIQUE` (`id` ASC) VISIBLE)
