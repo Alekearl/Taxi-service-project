@@ -1,2 +1,1 @@
-"# Taxi service" 
-Were used DAO(CRUD), SERVICES, ANNOTATIONS etc...
+"# Taxi service"
